@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Georgia Regular';
+    src: font-url('/assets/fonts/fonts/georgia/georgia-regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-georgia-regular: 'Georgia Regular', serif;
+$font-arial-regular: Arial, sans-serif;
+$color-primary: #F1CDB3;
+$color-light-xl: #FFFFFF;
+
+#title {
+    font: 32px $font-georgia-regular;
+    color: $color-primary;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+}
+#subtitle {
+    font: 13px $font-arial-regular;
+    color: $color-light-xl;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0.1em;
+}
+body {
+    background-color: black;
+}
