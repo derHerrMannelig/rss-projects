@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Georgia Regular";
+  font-family: "Georgia";
   src: local("Georgia Regular"), local("Georgia-Regular"), font-url("/assets/fonts/fonts/georgia/georgia-regular.ttf") format("ttf");
   font-weight: normal;
   font-style: normal;
@@ -16,6 +16,133 @@ html {
 body {
   font-size: 1.6rem;
   font-family: Arial, sans-serif;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo {
+  text-decoration: none;
+  color: black;
+}
+
+h1 {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 57px;
+}
+
+h2 {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 0.06em;
+}
+
+h3 {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+}
+
+h4 {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  letter-spacing: 0.06em;
+}
+
+.title {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 44px;
+  letter-spacing: 0.06em;
+  color: #F1CDB3;
+}
+
+.subtitle {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  padding-left: 4px;
+}
+
+li {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  list-style-type: none;
+  padding: 0 17.5px;
+  cursor: pointer;
+}
+
+.li-item-4 {
+  padding: 0 0 0 17.5px;
+}
+
+.start-screen {
+  background: url(noise_lines_transparent@2X.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+
+.about {
+  background: #FFFFFF;
+}
+
+.pets {
+  background: #F6F6F6;
+}
+
+.help {
+  background: #FFFFFF;
+}
+
+.donation {
+  background: #F6F6F6;
+}
+
+.footer {
+  background: url(noise_lines_transparent@2X.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+}
+
+.header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  margin-top: 30px;
+}
+
+.start-screen .wrapper {
+  height: 908px;
+}
+
+.navigation {
+  display: flex;
+}
+
+.header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 /*# sourceMappingURL=style.css.map */
