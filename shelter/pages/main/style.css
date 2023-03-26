@@ -34,6 +34,8 @@ h1 {
   font-weight: 400;
   font-size: 44px;
   line-height: 57px;
+  color: #FFFFFF;
+  width: 310px;
 }
 
 h2 {
@@ -63,6 +65,26 @@ h4 {
   letter-spacing: 0.06em;
 }
 
+p {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.start-screen p {
+  color: #CDCDCD;
+  width: 460px;
+  margin-top: 42px;
+  margin-bottom: 42px;
+}
+
+.about p {
+  color: #4C4C4C;
+  width: 430px;
+}
+
 .title {
   font-family: "Georgia";
   font-style: normal;
@@ -81,6 +103,7 @@ h4 {
   line-height: 15px;
   letter-spacing: 0.1em;
   padding-left: 4px;
+  color: #FFFFFF;
 }
 
 li {
@@ -91,6 +114,7 @@ li {
   line-height: 24px;
   list-style-type: none;
   padding: 0 17.5px;
+  color: #CDCDCD;
   cursor: pointer;
 }
 
@@ -122,6 +146,51 @@ li {
   background: url(noise_lines_transparent@2X.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
 }
 
+.button-primary-element {
+  padding: 15px 45px;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  color: #292929;
+  background: #F1CDB3;
+  border-radius: 100px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.button-secondary-element {
+  padding: 15px 45px;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  color: #292929;
+  background: none;
+  border-radius: 100px;
+  border: 2px solid #F1CDB3;
+  cursor: pointer;
+}
+
+.button-credit-card-element {
+  padding: 10px 15px;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  color: #545454;
+  background: #F1CDB3;
+  border-radius: 9px;
+  border-style: none;
+  cursor: pointer;
+}
+
 .header .wrapper {
   display: flex;
   align-items: center;
@@ -132,6 +201,17 @@ li {
 
 .start-screen .wrapper {
   height: 908px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.start-screen-content {
+  padding-top: 100px;
+}
+
+.start-screen-pup {
+  padding-top: 184px;
 }
 
 .navigation {
