@@ -469,4 +469,11 @@ li {
   margin: auto;
 }
 
+.footer .wrapper {
+  height: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /*# sourceMappingURL=style.css.map */
