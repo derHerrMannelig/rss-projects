@@ -144,6 +144,27 @@ li {
 .footer {
     background: url(noise_lines_transparent@2X.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
 }
+.arrow-left {
+    background-image: url(./svg/arrow.svg);
+    width: 14px;
+    height: 6px;
+    display: inline-block;
+}
+.arrow-right {
+    background-image: url(./svg/arrow.svg);
+    width: 14px;
+    height: 6px;
+    display: inline-block;
+    transform: rotate(-180deg);
+}
+.button-arrow-element {
+    width: 52px;
+    height: 52px;
+    border: 2px solid $color-primary;
+    border-radius: 100px;
+    background: none;
+    cursor: pointer;
+}
 .button-primary-element {
     padding: 15px 45px;
     font-family: 'Georgia';
@@ -222,6 +243,41 @@ li {
 }
 .about-content h2{
     width: 370px;
+}
+.pets .wrapper {
+    height: 877px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pets .slider {
+    margin-top: 60px;
+    width: $content-width;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 60px;
+}
+.pets h2 {
+    width: 400px;
+    text-align: center;
+    padding-top: 80px;
+}
+.card{
+    width: 270px;
+    height: 435px;
+    background: $color-light-s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card h3{
+    padding-top: 25px;
+    padding-bottom: 29px;
+}
+.card + .card {
+    margin-left: 37px;
 }
 .navigation {
     display: flex;
