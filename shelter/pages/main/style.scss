@@ -1,17 +1,34 @@
 @font-face {
     font-family: 'Georgia Regular';
-    src: font-url('/assets/fonts/fonts/georgia/georgia-regular.ttf') format('ttf');
+    src: local('Georgia Regular'), local('Georgia-Regular'),
+    font-url('/assets/fonts/fonts/georgia/georgia-regular.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
 }
 
 $color-primary: #F1CDB3;
+
+$color-light-s: #FAFAFA;
+$color-light-l: #F6F6F6;
 $color-light-xl: #FFFFFF;
+
+$color-dark-s: #CDCDCD;
+$color-dark-l: #545454;
+$color-dark-xl: #4C4C4C;
+$color-dark-3xl: #292929;
+
+$content-width: 1200px;
 
 * {
     margin: 0;
     padding: 0;
 }
-.logo {
-    text-decoration: none;
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: Arial, sans-serif;
 }

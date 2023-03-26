@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Georgia Regular";
-  src: font-url("/assets/fonts/fonts/georgia/georgia-regular.ttf") format("ttf");
+  src: local("Georgia Regular"), local("Georgia-Regular"), font-url("/assets/fonts/fonts/georgia/georgia-regular.ttf") format("ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -9,8 +9,13 @@
   padding: 0;
 }
 
-.logo {
-  text-decoration: none;
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: Arial, sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */
