@@ -55,6 +55,7 @@ h3 {
   font-size: 20px;
   line-height: 23px;
   letter-spacing: 0.06em;
+  color: #545454;
 }
 
 h4 {
@@ -161,6 +162,69 @@ li {
   height: 6px;
   display: inline-block;
   transform: rotate(-180deg);
+}
+
+.icon1 {
+  background-image: url(./svg/icon-pet-food.svg);
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+.icon2 {
+  background-image: url(./svg/icon-transportation.svg);
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+.icon3 {
+  background-image: url(./svg/icon-toys.svg);
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+.icon4 {
+  background-image: url(./svg/icon-bowls-and-cups.svg);
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+.icon5 {
+  background-image: url(./svg/icon-shampoos.svg);
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+.icon6 {
+  background-image: url(./svg/icon-vitamins.svg);
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+.icon7 {
+  background-image: url(./svg/icon-medicines.svg);
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+.icon8 {
+  background-image: url(./svg/icon-collars-leashes.svg);
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+.icon9 {
+  background-image: url(./svg/icon-sleeping-area.svg);
+  width: 60px;
+  height: 60px;
+  display: inline-block;
 }
 
 .button-arrow-element {
@@ -301,6 +365,50 @@ li {
 
 .card + .card {
   margin-left: 37px;
+}
+
+.help .wrapper {
+  height: 611px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.help .list {
+  margin-top: 60px;
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 55px;
+  column-gap: 120px;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-item {
+  width: auto;
+  height: 113px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-item h3 {
+  padding-top: 30px;
+}
+
+.help h2 {
+  width: 350px;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.donation .wrapper {
+  height: 462px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navigation {
