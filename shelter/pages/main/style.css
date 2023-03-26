@@ -45,6 +45,7 @@ h2 {
   font-size: 35px;
   line-height: 45px;
   letter-spacing: 0.06em;
+  color: #545454;
 }
 
 h3 {
@@ -83,6 +84,7 @@ p {
 .about p {
   color: #4C4C4C;
   width: 430px;
+  margin-top: 25px;
 }
 
 .title {
@@ -212,6 +214,28 @@ li {
 
 .start-screen-pup {
   padding-top: 184px;
+}
+
+.about .wrapper {
+  height: 588px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-pets {
+  padding-left: 175px;
+  padding-bottom: 14px;
+}
+
+.about-content {
+  width: 430px;
+  padding-right: 175px;
+  padding-bottom: 18px;
+}
+
+.about-content h2 {
+  width: 370px;
 }
 
 .navigation {
