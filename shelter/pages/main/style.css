@@ -11,6 +11,7 @@
 
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -21,11 +22,6 @@ body {
 .wrapper {
   max-width: 1200px;
   margin: auto;
-}
-
-.logo {
-  text-decoration: none;
-  color: black;
 }
 
 h1 {
@@ -103,9 +99,10 @@ p {
   font-style: normal;
   font-weight: 400;
   font-size: 32px;
-  line-height: 44px;
+  line-height: 47px;
   letter-spacing: 0.06em;
   color: #F1CDB3;
+  transition-duration: 1s;
 }
 
 .subtitle {
@@ -117,6 +114,7 @@ p {
   letter-spacing: 0.1em;
   padding-left: 4px;
   color: #FFFFFF;
+  transition-duration: 1s;
 }
 
 li {
@@ -126,13 +124,31 @@ li {
   font-size: 15px;
   line-height: 24px;
   list-style-type: none;
-  padding: 0 17.5px;
+  padding: 0 18px;
   color: #CDCDCD;
   cursor: pointer;
+  transition-duration: 1s;
 }
 
-.li-item-4 {
+li span {
+  padding-bottom: 4px;
+}
+
+#li-item-1 {
+  cursor: auto;
+  color: #FAFAFA;
+}
+
+#li-item-1 span {
+  border-bottom: 3px solid #F1CDB3;
+}
+
+#li-item-4 {
   padding: 0 0 0 17.5px;
+}
+
+li:hover {
+  color: #FAFAFA;
 }
 
 .start-screen {
@@ -272,6 +288,12 @@ li {
   border-radius: 100px;
   background: none;
   cursor: pointer;
+  transition-duration: 1s;
+}
+
+.button-arrow-element:hover {
+  background: #FDDCC4;
+  border-color: #FDDCC4;
 }
 
 .button-primary-element {
@@ -287,10 +309,15 @@ li {
   border-radius: 100px;
   border-style: none;
   cursor: pointer;
+  transition-duration: 1s;
+}
+
+.button-primary-element:hover {
+  background: #FDDCC4;
 }
 
 .button-secondary-element {
-  padding: 15px 45px;
+  padding: 13px 43px;
   font-family: "Georgia";
   font-style: normal;
   font-weight: 400;
@@ -318,6 +345,11 @@ li {
   border-radius: 9px;
   border-style: none;
   cursor: pointer;
+  transition-duration: 1s;
+}
+
+.button-credit-card-element:hover {
+  background: #FDDCC4;
 }
 
 .header .wrapper {
@@ -326,6 +358,19 @@ li {
   justify-content: space-between;
   height: 60px;
   margin-top: 30px;
+}
+
+.logo {
+  text-decoration: none;
+  align-self: flex-end;
+}
+
+.logo:hover .title {
+  color: #F6F6F6;
+}
+
+.logo:hover .subtitle {
+  color: #F6F6F6;
 }
 
 .start-screen .wrapper {
@@ -399,15 +444,31 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition-duration: 1s;
 }
 
 .card h3 {
   padding-top: 25px;
-  padding-bottom: 29px;
+  padding-bottom: 30px;
 }
 
 .card + .card {
   margin-left: 37px;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  background: #FFFFFF;
+}
+
+.card .button-secondary-element {
+  transition-duration: 1s;
+}
+
+.card:hover .button-secondary-element {
+  background: #FDDCC4;
+  border-color: #FDDCC4;
 }
 
 .help .wrapper {
@@ -435,10 +496,16 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 }
 
 .list-item h3 {
   padding-top: 30px;
+  transition-duration: 1s;
+}
+
+.list-item:hover h3 {
+  color: #F1CDB3;
 }
 
 .help h2 {
@@ -479,8 +546,12 @@ li {
 }
 
 .donation-content .credit-card-number {
-  display: inline-block;
+  display: block;
   padding-left: 15px;
+}
+
+.nav-menu {
+  padding-bottom: 5px;
 }
 
 .navigation {
@@ -531,6 +602,11 @@ li {
   color: #F1CDB3;
   display: flex;
   align-items: center;
+  transition-duration: 1s;
+}
+
+.footer-link:hover a {
+  color: #F6F6F6;
 }
 
 .footer-link-text {
@@ -550,6 +626,40 @@ li {
 
 .footer-doge img {
   display: block;
+}
+
+.pets-standalone {
+  background: #F6F6F6;
+}
+
+.pets-standalone .wrapper {
+  height: 877px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pets-standalone .slider {
+  margin-top: 60px;
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 60px;
+}
+
+.pets-standalone h1 {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 0.06em;
+  color: #545454;
+  width: 400px;
+  text-align: center;
+  padding-top: 80px;
 }
 
 /*# sourceMappingURL=style.css.map */

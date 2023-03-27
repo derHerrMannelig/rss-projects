@@ -4,34 +4,35 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Shelter</title>
+        <title>Cozy House</title>
         <link rel="stylesheet" type="text/css" href="./normalize.css">
         <link rel="stylesheet" type="text/css" href="./style.css">
+        <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
     </head>
     <body>
-        <header class="header">
+        <header class="header" id="header">
             <div class="wrapper">
                 <a href="#" class="logo">
-                    <span class ="title">Cozy House</span></br>
+                    <span class ="title">Cozy House</span><br>
                     <span class ="subtitle">Shelter for pets in Boston</span>
                 </a>
                 <nav class ="nav-menu">
                     <ul class="navigation">
-                        <li>About the shelter</li>
-                        <li>Our pets</li>
-                        <li>Help the shelter</li>
-                        <li class='li-item-4'>Contacts</li>
+                        <li id='li-item-1'><span>About the shelter</span></li>
+                        <li id='li-item-2' onclick="location.href='./pets.html'"><span>Our pets</span></li>
+                        <li id='li-item-3' onclick="location.href='#help'"><span>Help the shelter</span></li>
+                        <li id='li-item-4' onclick="location.href='#footer'"><span>Contacts</span></li>
                     </ul>
                 </nav>
             </div>
         </header>
-        <section class="start-screen">
+        <section class="start-screen" id="not-only">
             <div class="wrapper">
                 <div class="start-screen-content">
                     <h1>Not only people need a house</h1>
                     <p>We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</p>
                     <div class="button-primary">
-                        <button class="button-primary-element">Make a friend</button>
+                        <button class="button-primary-element" onclick="location.href='#our-friends'">Make a friend</button>
                     </div>
                 </div>
                 <div class="start-screen-pup">
@@ -39,7 +40,7 @@
                 </div>
             </div>
         </section>
-        <section class="about">
+        <section class="about" id="about">
             <div class="wrapper">
                 <div class="about-pets">
                     <img src="./img/about-pets.png" alt="about-pets-pic">
@@ -51,10 +52,10 @@
                 </div>
             </div>
         </section>
-        <section class="pets">
+        <section class="pets" id="our-friends">
             <div class="wrapper">
                 <div class="pets-content">
-                    <h2>Our friends who</br> are looking for a house</h2>
+                    <h2>Our friends who<br> are looking for a house</h2>
                 </div>
                 <div class="slider">
                     <div class="button-arrow-1">
@@ -92,14 +93,14 @@
                     </div>
                 </div>
                 <div class="button-primary">
-                    <button class="button-primary-element">Get to know the rest</button>
+                    <button class="button-primary-element" onclick="location.href='./pets.html'">Get to know the rest</button>
                 </div>
             </div>
         </section>
-        <section class="help">
+        <section class="help" id="help">
             <div class="wrapper">
                 <div class="help-content">
-                    <h2>How you can help</br> our shelter</h2>
+                    <h2>How you can help<br> our shelter</h2>
                 </div>
                 <div class="list">
                     <div class="list-item">
@@ -141,7 +142,7 @@
                 </div>
             </div>
         </section>
-        <section class="donation">
+        <section class="donation" id="in-addition">
             <div class="wrapper">
                 <div class="donation-doge">
                     <img src="./img/donation-dog.png" alt="just-donate-some-bucks-d00d">
@@ -151,14 +152,14 @@
                     <h4>Name of the bank / Type of bank account</h4>
                     <div class="credit-card">
                         <div class="credit-card-content">
-                            <button class="button-credit-card-element"><span class="credit-card-icon"></span><span class="credit-card-number">8380 2880 8028 8791 7435</span></button>
+                            <button class="button-credit-card-element" onclick="location.href='#'"><span class="credit-card-icon"></span><span class="credit-card-number">8380 2880 8028 8791 7435</span></button>
                         </div>
                     </div>
                     <p class="discretion">Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ipsum at libero sagittis dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
                 </div>
             </div>
         </section>
-        <footer class="footer">
+        <footer class="footer" id="footer">
             <div class="wrapper">
                 <div class="questions">
                     <h2>For questions and suggestions</h2>
@@ -172,7 +173,7 @@
                 <div class="visit">
                     <h2>We are waiting for your visit</h2>
                     <div class="footer-link">
-                        <a href="https://www.google.com/maps/?q=Weldon%20Grain%20Elevators"><span class="location-icon"></span><span class="footer-link-text">1 Central Street, Boston</br>(entrance from the store)</span></a>
+                        <a href="https://www.google.com/maps/?q=Weldon%20Grain%20Elevators"><span class="location-icon"></span><span class="footer-link-text">1 Central Street, Boston<br>(entrance from the store)</span></a>
                     </div>
                     <div class="footer-link">
                         <a href="https://www.google.com/maps/?q=Doge%20Group"><span class="location-icon"></span><span class="footer-link-text">18 South Park, London</span></a>
@@ -185,4 +186,3 @@
         </footer>
     </body>
 </html>
-<!--TODO: Height and width for img tags; Markup for footer; Layout for footer-->
