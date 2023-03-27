@@ -137,17 +137,17 @@ li {
 li span {
     padding-bottom: 4px;
 }
-#li-item-1 {
+.header #li-item-1 {
     cursor: auto;
     color: $color-light-s;
 }
-#li-item-1 span {
+.header #li-item-1 span {
     border-bottom: 3px solid $color-primary;
 }
 #li-item-4 {
     padding: 0 0 0 17.5px;
 }
-li:hover {
+.header li:hover {
     color: $color-light-s;
 }
 .start-screen {
@@ -398,6 +398,7 @@ li:hover {
     width: 270px;
     height: 435px;
     background: $color-light-s;
+    border-radius: 9px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -407,7 +408,7 @@ li:hover {
     padding-top: 25px;
     padding-bottom: 30px;
 }
-.card + .card {
+.pets .card + .card {
     margin-left: 37px;
 }
 .card:hover {
@@ -556,16 +557,19 @@ li:hover {
     background: $color-light-l;
 }
 .pets-standalone .wrapper {
-    height: 877px;
+    height: 1342px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .pets-standalone .slider {
-    margin-top: 60px;
+    margin-top: 35px;
     width: $content-width;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: 40px;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 60px;
@@ -580,5 +584,80 @@ li:hover {
     color: $color-dark-l;
     width: 400px;
     text-align: center;
-    padding-top: 80px;
+    padding-top: 60px;
+}
+.header-pets .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+.header-pets .title {
+    color: $color-dark-l;
+}
+.header-pets .subtitle {
+    color: $color-dark-3xl;
+}
+.header-pets .logo:hover .title{
+    color: $color-primary;
+}
+.header-pets .logo:hover .subtitle{
+    color: $color-primary;
+}
+.header-pets li {
+    color: $color-dark-l;
+}
+.header-pets li:hover {
+    color: $color-dark-3xl;
+}
+.header-pets #li-item-2 {
+    cursor: auto;
+    color: $color-dark-3xl;
+}
+.header-pets #li-item-2 span {
+    border-bottom: 3px solid $color-primary;
+}
+.pets-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 340px;
+}
+.pets-navigation .button-paginator {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.06em;
+}
+.button-inactive-element {
+    width: 52px;
+    height: 52px;
+    border: 2px solid $color-dark-s;
+    color: $color-dark-s;
+    border-radius: 100px;
+    background: none;
+    cursor: auto;
+    transition-duration: 1s;
+}
+.button-normal-element {
+    width: 52px;
+    height: 52px;
+    border: 2px solid $color-primary;
+    border-radius: 100px;
+    background: $color-primary;
+    cursor: pointer;
+    transition-duration: 1s;
+    color: $color-dark-3xl;
+}
+.button-normal-element:hover {
+    border-color: $color-primary-light;
+    background: $color-primary-light;
+}
+.pets-navigation .button-arrow-element {
+    color: $color-dark-3xl;
 }

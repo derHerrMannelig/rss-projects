@@ -134,12 +134,12 @@ li span {
   padding-bottom: 4px;
 }
 
-#li-item-1 {
+.header #li-item-1 {
   cursor: auto;
   color: #FAFAFA;
 }
 
-#li-item-1 span {
+.header #li-item-1 span {
   border-bottom: 3px solid #F1CDB3;
 }
 
@@ -147,7 +147,7 @@ li span {
   padding: 0 0 0 17.5px;
 }
 
-li:hover {
+.header li:hover {
   color: #FAFAFA;
 }
 
@@ -441,6 +441,7 @@ li:hover {
   width: 270px;
   height: 435px;
   background: #FAFAFA;
+  border-radius: 9px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -452,7 +453,7 @@ li:hover {
   padding-bottom: 30px;
 }
 
-.card + .card {
+.pets .card + .card {
   margin-left: 37px;
 }
 
@@ -633,17 +634,20 @@ li:hover {
 }
 
 .pets-standalone .wrapper {
-  height: 877px;
+  height: 1342px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .pets-standalone .slider {
-  margin-top: 60px;
+  margin-top: 35px;
   width: 1200px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  column-gap: 40px;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 60px;
@@ -659,7 +663,97 @@ li:hover {
   color: #545454;
   width: 400px;
   text-align: center;
-  padding-top: 80px;
+  padding-top: 60px;
+}
+
+.header-pets .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  margin-top: 30px;
+  padding-bottom: 30px;
+}
+
+.header-pets .title {
+  color: #545454;
+}
+
+.header-pets .subtitle {
+  color: #292929;
+}
+
+.header-pets .logo:hover .title {
+  color: #F1CDB3;
+}
+
+.header-pets .logo:hover .subtitle {
+  color: #F1CDB3;
+}
+
+.header-pets li {
+  color: #545454;
+}
+
+.header-pets li:hover {
+  color: #292929;
+}
+
+.header-pets #li-item-2 {
+  cursor: auto;
+  color: #292929;
+}
+
+.header-pets #li-item-2 span {
+  border-bottom: 3px solid #F1CDB3;
+}
+
+.pets-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 340px;
+}
+
+.pets-navigation .button-paginator {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+}
+
+.button-inactive-element {
+  width: 52px;
+  height: 52px;
+  border: 2px solid #CDCDCD;
+  color: #CDCDCD;
+  border-radius: 100px;
+  background: none;
+  cursor: auto;
+  transition-duration: 1s;
+}
+
+.button-normal-element {
+  width: 52px;
+  height: 52px;
+  border: 2px solid #F1CDB3;
+  border-radius: 100px;
+  background: #F1CDB3;
+  cursor: pointer;
+  transition-duration: 1s;
+  color: #292929;
+}
+
+.button-normal-element:hover {
+  border-color: #FDDCC4;
+  background: #FDDCC4;
+}
+
+.pets-navigation .button-arrow-element {
+  color: #292929;
 }
 
 /*# sourceMappingURL=style.css.map */
