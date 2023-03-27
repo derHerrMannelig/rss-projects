@@ -136,7 +136,7 @@ li {
 }
 
 .start-screen {
-  background: url(noise_lines_transparent@2X.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+  background: url(./img/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
 }
 
 .about {
@@ -156,7 +156,7 @@ li {
 }
 
 .footer {
-  background: url(noise_lines_transparent@2X.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+  background: url(./img/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
 }
 
 .arrow-left {
@@ -178,6 +178,27 @@ li {
   background-image: url(./svg/credit-card.svg);
   width: 30px;
   height: 23px;
+  display: inline-block;
+}
+
+.email-icon {
+  background-image: url(./svg/icon-email.svg);
+  width: 40px;
+  height: 32px;
+  display: inline-block;
+}
+
+.tel-icon {
+  background-image: url(./svg/icon-phone.svg);
+  width: 40px;
+  height: 32px;
+  display: inline-block;
+}
+
+.location-icon {
+  background-image: url(./svg/icon-marker.svg);
+  width: 22px;
+  height: 32px;
   display: inline-block;
 }
 
@@ -315,11 +336,15 @@ li {
 }
 
 .start-screen-content {
-  padding-top: 100px;
+  padding-top: 70px;
 }
 
 .start-screen-pup {
-  padding-top: 184px;
+  align-self: flex-end;
+}
+
+.start-screen-pup img {
+  display: block;
 }
 
 .about .wrapper {
@@ -431,7 +456,7 @@ li {
 
 .donation-doge {
   padding-left: 143px;
-  padding-bottom: 18px;
+  padding-bottom: 15px;
 }
 
 .donation-content {
@@ -474,6 +499,57 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.footer h2 {
+  color: #FFFFFF;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  width: 279px;
+  padding-right: 10px;
+}
+
+.visit {
+  display: flex;
+  flex-direction: column;
+  width: 311px;
+}
+
+.footer-link {
+  margin-top: 40px;
+}
+
+.visit .footer-link {
+  margin-top: 33px;
+}
+
+.footer-link a {
+  text-decoration: none;
+  color: #F1CDB3;
+  display: flex;
+  align-items: center;
+}
+
+.footer-link-text {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.footer-doge {
+  align-self: flex-end;
+}
+
+.footer-doge img {
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */
