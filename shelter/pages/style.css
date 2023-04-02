@@ -17,6 +17,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 .wrapper {
@@ -31,7 +32,8 @@ h1 {
   font-size: 44px;
   line-height: 57px;
   color: #FFFFFF;
-  width: 310px;
+  max-width: 310px;
+  margin: 0;
 }
 
 h2 {
@@ -70,13 +72,6 @@ p {
   font-weight: 400;
   font-size: 15px;
   line-height: 24px;
-}
-
-.start-screen p {
-  color: #CDCDCD;
-  width: 460px;
-  margin-top: 42px;
-  margin-bottom: 42px;
 }
 
 .about p {
@@ -381,7 +376,17 @@ li span {
 }
 
 .start-screen-content {
-  padding-top: 70px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  height: 322px;
+  max-width: 460px;
+  justify-content: space-between;
+}
+
+.start-screen p {
+  color: #CDCDCD;
+  max-width: 460px;
 }
 
 .start-screen-pup {
@@ -405,7 +410,7 @@ li span {
 }
 
 .about-content {
-  width: 430px;
+  max-width: 430px;
   padding-right: 175px;
   padding-bottom: 18px;
 }
@@ -423,7 +428,7 @@ li span {
 
 .pets .slider {
   margin-top: 60px;
-  width: 1200px;
+  max-width: 1200px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -454,7 +459,15 @@ li span {
 }
 
 .pets .card + .card {
-  margin-left: 37px;
+  margin-left: 90px;
+}
+
+.pets .button-arrow-1 + .card {
+  margin-left: 53px;
+}
+
+.pets .card + .button-arrow-2 {
+  margin-left: 53px;
 }
 
 .card:hover {
@@ -754,6 +767,96 @@ li span {
 
 .pets-navigation .button-arrow-element {
   color: #292929;
+}
+
+/*Tablet 768p*/
+@media (min-width: 768px) and (max-width: 1200px) {
+  .wrapper {
+    max-width: 708px;
+  }
+  .start-screen .wrapper {
+    flex-direction: column;
+    height: 1165px;
+  }
+  .start-screen-content {
+    margin-top: 150px;
+  }
+  .start-screen-content .button-primary {
+    align-self: center;
+  }
+  .start-screen img {
+    width: 569px;
+  }
+  .about .wrapper {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    height: 1048px;
+  }
+  .about-content {
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-top: 80px;
+  }
+  .about-pets {
+    padding-top: 80px;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+  .pets .slider {
+    max-width: 708px;
+  }
+  .pets .card:nth-of-type(4) {
+    display: none;
+  }
+  .pets .card + .card {
+    margin-left: 40px;
+  }
+  .pets .button-arrow-1 + .card {
+    margin-left: 12px;
+  }
+  .pets .card + .button-arrow-2 {
+    margin-left: 12px;
+  }
+  .help .wrapper {
+    height: 779px;
+  }
+  .help .list {
+    width: 630px;
+    row-gap: 55px;
+    column-gap: 60px;
+  }
+  .list-item {
+    width: 170px;
+  }
+  .donation .wrapper {
+    flex-direction: column-reverse;
+    height: 783px;
+    justify-content: flex-end;
+  }
+  .donation-doge {
+    padding-top: 60px;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+  .donation-content {
+    padding-top: 80px;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+  .footer .wrapper {
+    height: 639px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .questions {
+    padding-right: 60px;
+    padding-left: 10px;
+  }
+  .questions, .visit {
+    padding-top: 10px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
