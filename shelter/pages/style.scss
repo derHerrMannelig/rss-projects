@@ -580,7 +580,7 @@ li span {
     align-items: center;
 }
 .pets-standalone .slider {
-    margin-top: 35px;
+    margin-top: 60px;
     width: $content-width;
     display: flex;
     flex-direction: row;
@@ -594,6 +594,7 @@ li span {
 .pets-standalone h1 {
     font-family: 'Georgia';
     font-style: normal;
+    max-width: 400px;
     font-weight: 400;
     font-size: 35px;
     line-height: 45px;
@@ -601,7 +602,8 @@ li span {
     color: $color-dark-l;
     width: 400px;
     text-align: center;
-    padding-top: 60px;
+    padding-top: 80px;
+    margin: 0;
 }
 .header-pets .wrapper {
     display: flex;
@@ -766,5 +768,21 @@ li span {
     }
     .questions, .visit {
         padding-top: 10px;
+    }
+    .pets-standalone .wrapper {
+        height: 1733px;
+    }
+    .pets-standalone h1 {
+        padding-top: 80px;
+        margin: 0;
+    }
+    .pets-standalone .slider {
+        width: 580px;
+        margin-top: 30px;
+        padding-bottom: 40px;
+    }
+    .pets-standalone .card:nth-of-type(7),
+    .pets-standalone .card:nth-of-type(8) {
+        display: none;
     }
 }
