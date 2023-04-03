@@ -764,6 +764,9 @@ li span {
 .hamburger:hover .hamburger-line{
     background-color: $color-light-l;
 }
+.header-pets .hamburger-line {
+    background-color: #000000;
+}
 
 /*Tablet 768p*/
 @media (min-width: $tablet-width) and (max-width: 1200px) {
@@ -1084,5 +1087,34 @@ li span {
     }
     .visit .footer-link {
         margin-top: 40px;
+    }
+    .pets-standalone .wrapper {
+        height: 1649px;
+    }
+    .pets-standalone h1 {
+        font-size: 25px;
+        line-height: 32px;
+        letter-spacing: 0.06em;
+        width: 300px;
+        padding-top: 42px;
+    }
+    .pets-standalone .slider {
+        margin-top: 42px;
+        max-width: 270px;
+        flex-wrap: wrap;
+        column-gap: 25px;
+        row-gap: 30px;
+        justify-content: center;
+        padding-bottom: 42px;
+    }
+    .pets-standalone .card:nth-of-type(4),
+    .pets-standalone .card:nth-of-type(5),
+    .pets-standalone .card:nth-of-type(6),
+    .pets-standalone .card:nth-of-type(7),
+    .pets-standalone .card:nth-of-type(8) {
+        display: none;
+    }
+    .pets-navigation {
+        width: 300px;
     }
 }
