@@ -767,6 +767,9 @@ li span {
 .header-pets .hamburger-line {
     background-color: #000000;
 }
+.header-pets .hamburger:hover .hamburger-line {
+    background-color: $color-primary;
+}
 
 /*Tablet 768p*/
 @media (min-width: $tablet-width) and (max-width: 1200px) {
