@@ -897,7 +897,7 @@ li span {
     }
 }
 /*Mobile 320p*/
-@media (min-width: $mobile-width) and (max-width: calc($tablet-width - 1px)) {
+@media (max-width: calc($tablet-width - 1px)) {
     .wrapper {
         min-width: $content-width-mobile;
         margin-left: 10px;

@@ -993,7 +993,7 @@ li span {
   }
 }
 /*Mobile 320p*/
-@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 767px) {
   .wrapper {
     min-width: 300px;
     margin-left: 10px;
