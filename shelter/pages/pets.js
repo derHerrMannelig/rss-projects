@@ -92,7 +92,7 @@ const data = [
 //Burger script
 document.addEventListener("DOMContentLoaded", function(){
   document.getElementById("burger").addEventListener("click", function(){
-    document.querySelector(".header").classList.toggle("open");
+    document.querySelector(".header-pets").classList.toggle("open");
     document.querySelector(".body").classList.toggle("open");
   });
 });
@@ -107,27 +107,27 @@ document.getElementById("burger").addEventListener('click', event => {
 
 document.body.addEventListener('click', event => {
   if (event.clickWithin) return;
-  document.querySelector(".header").classList.remove("open")
+  document.querySelector(".header-pets").classList.remove("open")
   document.querySelector(".body").classList.remove("open")
 });
 
 document.getElementById("li-item-1").addEventListener("click", function(){
-  document.querySelector(".header").classList.remove("open");
+  document.querySelector(".header-pets").classList.remove("open");
   document.querySelector(".body").classList.remove("open");
 });
 
 document.getElementById("li-item-2").addEventListener("click", function(){
-  document.querySelector(".header").classList.remove("open");
+  document.querySelector(".header-pets").classList.remove("open");
   document.querySelector(".body").classList.remove("open");
 });
 
 document.getElementById("li-item-3").addEventListener("click", function(){
-  document.querySelector(".header").classList.remove("open");
+  document.querySelector(".header-pets").classList.remove("open");
   document.querySelector(".body").classList.remove("open");
 });
 
 document.getElementById("li-item-4").addEventListener("click", function(){
-  document.querySelector(".header").classList.remove("open");
+  document.querySelector(".header-pets").classList.remove("open");
   document.querySelector(".body").classList.remove("open");
 });
 

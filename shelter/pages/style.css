@@ -866,12 +866,12 @@ li span {
   background-color: #000000;
 }
 
-.header-pets .hamburger:hover .hamburger-line {
-  background-color: #F1CDB3;
-}
-
 /*Hamburger rotate*/
 .header.open .hamburger {
+  rotate: -90deg;
+}
+
+.header-pets.open .hamburger {
   rotate: -90deg;
 }
 
@@ -1015,9 +1015,13 @@ li span {
     background-color: #292929;
     padding-top: 228px;
     width: 320px;
-    height: 2578px;
+    height: 2500px;
     visibility: hidden;
     transition: transform 0.35s, visibility 0.35s;
+  }
+  .header-pets .nav-menu {
+    background-color: #CDCDCD;
+    height: 1535px;
   }
   .navigation {
     display: block;
@@ -1032,6 +1036,10 @@ li span {
     padding: 20px 0;
   }
   .header.open .nav-menu {
+    transform: translateX(-100%);
+    visibility: visible;
+  }
+  .header-pets.open .nav-menu {
     transform: translateX(-100%);
     visibility: visible;
   }
