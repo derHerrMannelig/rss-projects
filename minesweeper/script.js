@@ -11,8 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 10;
   const bombs = 10;
   const cells = [];
+  let gameOverCheck = false;
 
   function click(cell) {
+    let targetId = cell.id;
+    if (gameOverCheck) return;
+    if (cell.classList.contains('clicked') || cell.classList.contains('flag')) return;
     if (cell.classList.contains('bomb')) {
       alert('Game over!');
     } else {
@@ -22,8 +26,57 @@ document.addEventListener('DOMContentLoaded', () => {
         cell.innerHTML = near;
         return;
       }
-      cell.classList.add('clicked');
+      checkCell(cell, targetId);
     }
+    cell.classList.add('clicked');
+  }
+
+  function checkCell(cell, targetId) {
+    const leftEdge = (targetId % width === 0);
+    const rightEdge = (targetId % width === width - 1);
+
+    setTimeout(() => {
+      if (targetId > 0 && !leftEdge) {
+        const newId = cells[parseInt(targetId, 10) - 1].id;
+        const newCell = document.getElementById(newId);
+        click(newCell);
+      }
+      if (targetId > 9 && !rightEdge) {
+        const newId = cells[parseInt(targetId, 10) + 1 - width].id;
+        const newCell = document.getElementById(newId);
+        click(newCell);
+      }
+      if (targetId > 10) {
+        const newId = cells[parseInt(targetId, 10) - width].id;
+        const newCell = document.getElementById(newId);
+        click(newCell);
+      }
+      if (targetId > 11 && !leftEdge) {
+        const newId = cells[parseInt(targetId, 10) - 1 - width].id;
+        const newCell = document.getElementById(newId);
+        click(newCell);
+      }
+      if (targetId < 99 && !rightEdge) {
+        const newId = cells[parseInt(targetId, 10) + 1].id;
+        const newCell = document.getElementById(newId);
+        click(newCell);
+      }
+      if (targetId < 90 && !leftEdge) {
+        const newId = cells[parseInt(targetId, 10) - 1 + width].id;
+        const newCell = document.getElementById(newId);
+        click(newCell);
+      }
+      if (targetId < 88 && !rightEdge) {
+        const newId = cells[parseInt(targetId, 10) + 1 + width].id;
+        const newCell = document.getElementById(newId);
+        click(newCell);
+      }
+      if (targetId < 89) {
+        const newId = cells[parseInt(targetId, 10) + width].id;
+        const newCell = document.getElementById(newId);
+        click(newCell);
+      }
+    }, 10);
   }
 
   function populateBoard() {
@@ -54,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (i > 9 && !rightEdge && cells[i + 1 - width].classList.contains('bomb')) near += 1;
         if (i > 10 && cells[i - width].classList.contains('bomb')) near += 1;
         if (i > 11 && !leftEdge && cells[i - 1 - width].classList.contains('bomb')) near += 1;
-        if (i < 98 && !rightEdge && cells[i + 1].classList.contains('bomb')) near += 1;
+        if (i < 99 && !rightEdge && cells[i + 1].classList.contains('bomb')) near += 1;
         if (i < 90 && !leftEdge && cells[i - 1 + width].classList.contains('bomb')) near += 1;
         if (i < 88 && !rightEdge && cells[i + 1 + width].classList.contains('bomb')) near += 1;
         if (i < 89 && cells[i + width].classList.contains('bomb')) near += 1;
