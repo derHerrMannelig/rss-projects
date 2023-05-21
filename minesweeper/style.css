@@ -27,6 +27,10 @@ body {
 .cell {
   height: 50px;
   width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: bold 2rem Arial, sans-serif;
 }
 
 .clicked {

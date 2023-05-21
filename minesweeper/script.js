@@ -14,13 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let gameOverCheck = false;
 
   function click(cell) {
-    let targetId = cell.id;
+    const targetId = cell.id;
     if (gameOverCheck) return;
     if (cell.classList.contains('clicked') || cell.classList.contains('flag')) return;
     if (cell.classList.contains('bomb')) {
-      alert('Game over!');
+      gameOver();
     } else {
-      let near = cell.getAttribute('data');
+      const near = cell.getAttribute('data');
       if (near !== '0') {
         cell.classList.add('clicked');
         cell.innerHTML = near;
@@ -115,5 +115,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
+
+  function gameOver() {
+    gameOverCheck = true;
+    cells.forEach((cell) => {
+      if (cell.classList.contains('bomb')) {
+        cell.innerHTML = '&#128163';
+      }
+    });
+    alert('Game over. Try again');
+  }
+
   populateBoard();
 });
