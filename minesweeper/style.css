@@ -1,0 +1,38 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #c8e8c8;
+}
+
+.header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: 0;
+  font: bold 2rem Arial, sans-serif;
+  text-align: center;
+  color: #222222;
+}
+
+.board {
+  height: 500px;
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: gray;
+}
+
+.cell {
+  height: 50px;
+  width: 50px;
+}
+
+.clicked {
+  background-color: orange;
+}
+
+.bomb {
+  background-color: red;
+}
