@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const bombs = 10;
   const cells = [];
   let gameOverCheck = false;
+  let counter = 0;
 
   function click(cell) {
     const targetId = cell.id;
@@ -24,11 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (near !== '0') {
         cell.classList.add('clicked');
         cell.innerHTML = near;
+        counter += 1;
+        console.log(counter);
+        youWin();
         return;
       }
       checkCell(cell, targetId);
     }
     cell.classList.add('clicked');
+    counter += 1;
+    console.log(counter);
+    youWin();
   }
 
   function checkCell(cell, targetId) {
@@ -130,6 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
         cell.classList.remove('flag');
         cell.innerHTML = '';
       }
+    }
+  }
+
+  function youWin() {
+    if (counter >= width * width - bombs) {
+      gameOverCheck = true;
+      alert('Hooray! You found all mines!');
     }
   }
 
