@@ -95,6 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
       cell.addEventListener('click', () => {
         click(cell);
       });
+      cell.addEventListener('contextmenu', (event) => {
+        event.preventDefault();
+        addFlag(cell);
+      });
     }
 
     for (let i = 0; i < cells.length; i += 1) {
@@ -112,6 +116,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (i < 88 && !rightEdge && cells[i + 1 + width].classList.contains('bomb')) near += 1;
         if (i < 89 && cells[i + width].classList.contains('bomb')) near += 1;
         cells[i].setAttribute('data', near);
+      }
+    }
+  }
+
+  function addFlag(cell) {
+    if (gameOverCheck) return;
+    if (!cell.classList.contains('clicked')) {
+      if (!cell.classList.contains('flag')) {
+        cell.classList.add('flag');
+        cell.innerHTML = '&#128681';
+      } else {
+        cell.classList.remove('flag');
+        cell.innerHTML = '';
       }
     }
   }
