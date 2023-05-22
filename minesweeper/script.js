@@ -77,13 +77,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  const stats = document.createElement('div');
+  stats.className = 'stats';
+
+  const clock = document.createElement('div');
+  const flags = document.createElement('div');
+  const mines = document.createElement('div');
+  const moves = document.createElement('div');
+
+  clock.className = 'clock';
+  flags.className = 'flags';
+  mines.className = 'mines';
+  moves.className = 'moves';
+
+  clock.innerHTML = '&#128337: 0';
+  flags.innerHTML = '&#128681: 0';
+  mines.innerHTML = '&#128163: 0';
+  moves.innerHTML = '&#127922: 0';
+
+  stats.appendChild(clock);
+  stats.appendChild(flags);
+  stats.appendChild(mines);
+  stats.appendChild(moves);
+
+  document.body.appendChild(stats);
+
   const boardElement = document.querySelector('.board');
 
   const width = 10;
   const bombs = 10;
 
+  mines.innerHTML = `&#128163: ${bombs}`;
+
   let sec = 0;
   let turn = 0;
+  let flag = 0;
 
   const cells = [];
   let gameOverCheck = false;
@@ -92,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function timer() {
     if (!gameOverCheck) {
       sec += 1;
-      console.log(`time elapsed: ${sec} seconds`);
+      clock.innerHTML = `&#128337: ${sec}`;
       setTimeout(timer, 1000);
     }
   }
@@ -154,12 +182,10 @@ document.addEventListener('DOMContentLoaded', () => {
       boardElement.appendChild(cell);
       cells.push(cell);
       cell.addEventListener('click', () => {
-        if (!gameOverCheck) {
+        if (!cell.classList.contains('clicked') && !cell.classList.contains('flag') && !gameOverCheck) {
           playSound('click.wav');
-        }
-        if (!cell.classList.contains('clicked')) {
           turn += 1;
-          console.log('Current turn: ', turn);
+          moves.innerHTML = `&#127922: ${turn}`;
         }
         click(cell);
       });
@@ -201,11 +227,14 @@ document.addEventListener('DOMContentLoaded', () => {
         cell.classList.add('flag');
         cell.innerHTML = '&#128681';
         playSound('flag.wav');
+        flag += 1;
       } else {
         cell.classList.remove('flag');
         cell.innerHTML = '';
         playSound('flag.wav');
+        flag -= 1;
       }
+      flags.innerHTML = `&#128681: ${flag}`;
     }
   }
 
@@ -216,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cell.classList.contains('bomb')) {
           cell.classList.add('defused');
           cell.innerHTML = '&#128681';
+          flags.innerHTML = '&#128681: 10';
         }
       });
       setTimeout(() => {
