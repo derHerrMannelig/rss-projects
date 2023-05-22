@@ -13,5 +13,6 @@ module.exports = {
   rules: {
     'no-use-before-define': 'warn',
     'no-param-reassign': 'warn',
+    'no-else-return': 'warn',
   },
 };

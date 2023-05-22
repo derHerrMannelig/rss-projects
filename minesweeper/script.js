@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cell.classList.contains('clicked') || cell.classList.contains('flag')) return;
     if (cell.classList.contains('bomb')) {
       gameOver();
+      return;
     } else {
       const near = cell.getAttribute('data');
       if (near !== '0') {
@@ -157,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
       boardElement.appendChild(cell);
       cells.push(cell);
       cell.addEventListener('click', () => {
+        playSound('click.wav');
         click(cell);
       });
       cell.addEventListener('contextmenu', (event) => {
@@ -191,9 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!cell.classList.contains('flag')) {
         cell.classList.add('flag');
         cell.innerHTML = '&#128681';
+        playSound('flag.wav');
       } else {
         cell.classList.remove('flag');
         cell.innerHTML = '';
+        playSound('flag.wav');
       }
     }
   }
@@ -207,7 +211,12 @@ document.addEventListener('DOMContentLoaded', () => {
           cell.innerHTML = '&#128681';
         }
       });
-      alert('Hooray! You found all mines!');
+      setTimeout(() => {
+        playSound('win.wav');
+      }, 250);
+      setTimeout(() => {
+        alert('Hooray! You found all mines!');
+      }, 350);
     }
   }
 
@@ -219,7 +228,17 @@ document.addEventListener('DOMContentLoaded', () => {
         cell.innerHTML = '&#128163';
       }
     });
-    alert('Game over. Try again');
+    setTimeout(() => {
+      playSound('lose.wav');
+    }, 250);
+    setTimeout(() => {
+      alert('Game over. Try again');
+    }, 350);
+  }
+
+  function playSound(sound) {
+    const audio = new Audio(`./sfx/${sound}`);
+    audio.play();
   }
 
   populateBoard();

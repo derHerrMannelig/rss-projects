@@ -7,8 +7,8 @@ body {
 }
 
 .header {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   margin: 0;
   font: bold 2rem Arial, sans-serif;
   text-align: center;
@@ -32,6 +32,7 @@ body {
   justify-content: center;
   font: bold 2rem Arial, sans-serif;
   outline: 0.25rem solid #444444;
+  user-select: none;
 }
 
 .clicked {
@@ -96,27 +97,32 @@ body {
   display: flex;
   margin: 0 auto;
   margin-bottom: 1rem;
-  width: 450px;
+  width: 500px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .settings div,
 .settingsBombs {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   background-color: #ffffff;
   font: bold 1.15rem Arial, sans-serif;
   border: solid 0.25rem #444444;;
   border-radius: 15px;
-  width: 140px;
+  width: 145px;
   height: 30px;
+}
+
+.settings div {
+  cursor: pointer;
+  user-select: none;
 }
 
 .settingsBombs {
   margin: 0 auto;
-  height: 40px;
+  height: 37px;
   width: 200px;
   margin-bottom: 1rem;
   justify-content: space-evenly;
