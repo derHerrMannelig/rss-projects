@@ -1,4 +1,5 @@
 document.body.classList.add('bright');
+let mute = false;
 
 const header = document.createElement('h1');
 const settings = document.createElement('div');
@@ -11,12 +12,12 @@ themeSwitch.onclick = () => {
   if (document.body.classList.contains('bright')) {
     document.body.classList.remove('bright');
     document.body.classList.add('dark');
-    themeSwitch.innerHTML = '&#127774;';
+    themeSwitch.innerHTML = '&#127769;';
     localStorage.setItem('theme', 'dark');
   } else {
     document.body.classList.remove('dark');
     document.body.classList.add('bright');
-    themeSwitch.innerHTML = '&#127769;';
+    themeSwitch.innerHTML = '&#127774;';
     localStorage.setItem('theme', 'bright');
   }
 };
@@ -32,7 +33,13 @@ const toggleSound = document.createElement('button');
 toggleSound.className = 'sound';
 toggleSound.innerHTML = '&#128266';
 toggleSound.onclick = () => {
-  // mute logic
+  mute = !mute;
+  if (mute) {
+    toggleSound.innerHTML = '&#128263;';
+  } else {
+    toggleSound.innerHTML = '&#128266;';
+  }
+  localStorage.setItem('isMuted', mute.toString());
 };
 
 header.className = 'header';
@@ -53,11 +60,21 @@ document.addEventListener('DOMContentLoaded', () => {
   if (savedTheme === 'dark') {
     document.body.classList.remove('bright');
     document.body.classList.add('dark');
-    themeSwitch.innerHTML = '&#127774;';
+    themeSwitch.innerHTML = '&#127769;';
   } else {
     document.body.classList.remove('dark');
     document.body.classList.add('bright');
-    themeSwitch.innerHTML = '&#127769;';
+    themeSwitch.innerHTML = '&#127774;';
+  }
+
+  const savedSound = localStorage.getItem('isMuted');
+  if (savedSound) {
+    mute = savedSound === 'true';
+    if (mute) {
+      toggleSound.innerHTML = '&#128263;';
+    } else {
+      toggleSound.innerHTML = '&#128266;';
+    }
   }
 
   const boardElement = document.querySelector('.board');
@@ -227,8 +244,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function playSound(sound) {
-    const audio = new Audio(`./sfx/${sound}`);
-    audio.play();
+    if (!mute) {
+      const audio = new Audio(`./sfx/${sound}`);
+      audio.play();
+    }
   }
 
   timer();
