@@ -1,55 +1,65 @@
+document.body.classList.add('bright');
+
 const header = document.createElement('h1');
+const settings = document.createElement('div');
 const board = document.createElement('div');
+
+const themeSwitch = document.createElement('button');
+themeSwitch.className = 'theme';
+themeSwitch.innerHTML = '&#127769';
+themeSwitch.onclick = () => {
+  if (document.body.classList.contains('bright')) {
+    document.body.classList.remove('bright');
+    document.body.classList.add('dark');
+    themeSwitch.innerHTML = '&#127774;';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.body.classList.remove('dark');
+    document.body.classList.add('bright');
+    themeSwitch.innerHTML = '&#127769;';
+    localStorage.setItem('theme', 'bright');
+  }
+};
+
 const newGame = document.createElement('button');
 newGame.className = 'newgame';
-newGame.innerHTML = 'Restart!';
+newGame.innerHTML = 'Restart &circlearrowleft;';
 newGame.onclick = () => {
   window.location.reload();
 };
+
+const toggleSound = document.createElement('button');
+toggleSound.className = 'sound';
+toggleSound.innerHTML = '&#128266';
+toggleSound.onclick = () => {
+  // mute logic
+};
+
 header.className = 'header';
 header.textContent = 'Minesweeper';
-board.className = 'board';
-const settings = document.createElement('div');
 settings.className = 'settings';
-const buttonNovice = document.createElement('div');
-buttonNovice.innerHTML = 'Novice (10x10)';
-buttonNovice.onclick = () => {
-};
-const buttonAdept = document.createElement('div');
-buttonAdept.innerHTML = 'Adept (15x15)';
-buttonAdept.onclick = () => {
-};
-const buttonGodlike = document.createElement('div');
-buttonGodlike.innerHTML = 'Godlike (25x25)';
-buttonGodlike.onclick = () => {
-};
+board.className = 'board';
 
-const buttonBombs = document.createElement('div');
-buttonBombs.className = 'settingsBombs';
-const labelBombs = document.createElement('label');
-labelBombs.for = 'minesQuantity';
-labelBombs.innerHTML = 'Set mines:';
-const inputBombs = document.createElement('input');
-inputBombs.type = 'number';
-inputBombs.id = 'minesQuantity';
-inputBombs.name = 'minesQuantity';
-inputBombs.min = 10;
-inputBombs.max = 99;
-inputBombs.value = 10;
-buttonBombs.appendChild(labelBombs);
-buttonBombs.appendChild(inputBombs);
-
-settings.appendChild(buttonNovice);
-settings.appendChild(buttonAdept);
-settings.appendChild(buttonGodlike);
+settings.appendChild(themeSwitch);
+settings.appendChild(newGame);
+settings.appendChild(toggleSound);
 
 document.body.appendChild(header);
 document.body.appendChild(settings);
-document.body.appendChild(buttonBombs);
-document.body.appendChild(newGame);
 document.body.appendChild(board);
 
 document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.body.classList.remove('bright');
+    document.body.classList.add('dark');
+    themeSwitch.innerHTML = '&#127774;';
+  } else {
+    document.body.classList.remove('dark');
+    document.body.classList.add('bright');
+    themeSwitch.innerHTML = '&#127769;';
+  }
+
   const boardElement = document.querySelector('.board');
 
   const width = 10;
