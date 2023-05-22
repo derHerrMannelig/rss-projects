@@ -53,17 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const boardElement = document.querySelector('.board');
 
   const width = 10;
-
-  const a = 0;
-  const b = 9;
-  const c = 10;
-  const d = 11;
-
-  const z = 99;
-  const y = 90;
-  const x = 89;
-  const v = 88;
-
   const bombs = 10;
 
   const cells = [];
@@ -96,50 +85,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function checkCell(cell, targetId) {
-    const leftEdge = (targetId % width === 0);
-    const rightEdge = (targetId % width === width - 1);
-
     setTimeout(() => {
-      if (targetId > a && !leftEdge) {
-        const newId = cells[parseInt(targetId, 10) - 1].id;
-        const newCell = document.getElementById(newId);
-        click(newCell);
-      }
-      if (targetId > b && !rightEdge) {
-        const newId = cells[parseInt(targetId, 10) + 1 - width].id;
-        const newCell = document.getElementById(newId);
-        click(newCell);
-      }
-      if (targetId > c) {
-        const newId = cells[parseInt(targetId, 10) - width].id;
-        const newCell = document.getElementById(newId);
-        click(newCell);
-      }
-      if (targetId > d && !leftEdge) {
-        const newId = cells[parseInt(targetId, 10) - 1 - width].id;
-        const newCell = document.getElementById(newId);
-        click(newCell);
-      }
-
-      if (targetId < z && !rightEdge) {
-        const newId = cells[parseInt(targetId, 10) + 1].id;
-        const newCell = document.getElementById(newId);
-        click(newCell);
-      }
-      if (targetId < y && !leftEdge) {
-        const newId = cells[parseInt(targetId, 10) - 1 + width].id;
-        const newCell = document.getElementById(newId);
-        click(newCell);
-      }
-      if (targetId < x) {
-        const newId = cells[parseInt(targetId, 10) + width].id;
-        const newCell = document.getElementById(newId);
-        click(newCell);
-      }
-      if (targetId < v && !rightEdge) {
-        const newId = cells[parseInt(targetId, 10) + 1 + width].id;
-        const newCell = document.getElementById(newId);
-        click(newCell);
+      const id = parseInt(targetId, 10);
+      const row = Math.floor(id / width);
+      const column = id % width;
+      const startRow = Math.max(row - 1, 0);
+      const endRow = Math.min(row + 1, width - 1);
+      const startColumn = Math.max(column - 1, 0);
+      const endColumn = Math.min(column + 1, width - 1);
+      for (let i = startRow; i <= endRow; i += 1) {
+        for (let j = startColumn; j <= endColumn; j += 1) {
+          if (i === row && j === column) continue;
+          const newId = i * width + j;
+          const newCell = document.getElementById(newId);
+          click(newCell);
+        }
       }
     }, 10);
   }
@@ -158,7 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
       boardElement.appendChild(cell);
       cells.push(cell);
       cell.addEventListener('click', () => {
-        playSound('click.wav');
+        if (!gameOverCheck) {
+          playSound('click.wav');
+        }
         click(cell);
       });
       cell.addEventListener('contextmenu', (event) => {
@@ -170,18 +132,23 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < cells.length; i += 1) {
       // Logic for tiles with numbers, indicating adjacent mines.
       let near = 0;
-      const leftEdge = (i % width === 0);
-      const rightEdge = (i % width === width - 1);
+      const row = Math.floor(i / width);
+      const column = i % width;
+      const leftEdge = (column === 0);
+      const rightEdge = (column === width - 1);
       if (cells[i].classList.contains('empty')) {
-        if (i > a && !leftEdge && cells[i - 1].classList.contains('bomb')) near += 1;
-        if (i > b && !rightEdge && cells[i + 1 - width].classList.contains('bomb')) near += 1;
-        if (i > c && cells[i - width].classList.contains('bomb')) near += 1;
-        if (i > d && !leftEdge && cells[i - 1 - width].classList.contains('bomb')) near += 1;
-
-        if (i < z && !rightEdge && cells[i + 1].classList.contains('bomb')) near += 1;
-        if (i < y && !leftEdge && cells[i - 1 + width].classList.contains('bomb')) near += 1;
-        if (i < x && cells[i + width].classList.contains('bomb')) near += 1;
-        if (i < v && !rightEdge && cells[i + 1 + width].classList.contains('bomb')) near += 1;
+        if (column > 0 && cells[i - 1].classList.contains('bomb')) near += 1;
+        if (column < width - 1 && cells[i + 1].classList.contains('bomb')) near += 1;
+        if (row > 0) {
+          if (!leftEdge && cells[i - 1 - width].classList.contains('bomb')) near += 1;
+          if (cells[i - width].classList.contains('bomb')) near += 1;
+          if (!rightEdge && cells[i + 1 - width].classList.contains('bomb')) near += 1;
+        }
+        if (row < width - 1) {
+          if (!leftEdge && cells[i - 1 + width].classList.contains('bomb')) near += 1;
+          if (cells[i + width].classList.contains('bomb')) near += 1;
+          if (!rightEdge && cells[i + 1 + width].classList.contains('bomb')) near += 1;
+        }
         cells[i].setAttribute('data', near);
       }
     }

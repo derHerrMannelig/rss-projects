@@ -14,5 +14,7 @@ module.exports = {
     'no-use-before-define': 'warn',
     'no-param-reassign': 'warn',
     'no-else-return': 'warn',
+    'no-continue': 'warn',
+    'no-loop-func': 'warn',
   },
 };

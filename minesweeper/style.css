@@ -33,6 +33,7 @@ body {
   font: bold 2rem Arial, sans-serif;
   outline: 0.25rem solid #444444;
   user-select: none;
+  cursor: pointer;
 }
 
 .clicked {
