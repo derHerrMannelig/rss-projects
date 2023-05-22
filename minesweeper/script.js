@@ -100,7 +100,21 @@ document.addEventListener('DOMContentLoaded', () => {
   stats.appendChild(mines);
   stats.appendChild(moves);
 
+  const stance = document.createElement('div');
+  stance.className = 'stance';
+  stance.innerHTML = 'Mode: &#128070';
+
+  stance.addEventListener('click', () => {
+    document.body.classList.toggle('rb');
+    if (document.body.classList.contains('rb')) {
+      stance.innerHTML = 'Mode: &#128681';
+    } else {
+      stance.innerHTML = 'Mode: &#128070';
+    }
+  });
+
   document.body.appendChild(stats);
+  document.body.appendChild(stance);
 
   const boardElement = document.querySelector('.board');
 
@@ -124,28 +138,31 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(timer, 1000);
     }
   }
-
   function click(cell) {
     const targetId = cell.id;
     if (gameOverCheck) return;
-    if (cell.classList.contains('clicked') || cell.classList.contains('flag')) return;
-    if (cell.classList.contains('bomb')) {
-      gameOver();
-      return;
+    if (document.body.classList.contains('rb')) {
+      addFlag(cell);
     } else {
-      const near = cell.getAttribute('data');
-      if (near !== '0') {
-        cell.classList.add('clicked');
-        cell.innerHTML = near;
-        counter += 1;
-        youWin();
+      if (cell.classList.contains('clicked') || cell.classList.contains('flag')) return;
+      if (cell.classList.contains('bomb')) {
+        gameOver();
         return;
+      } else {
+        const near = cell.getAttribute('data');
+        if (near !== '0') {
+          cell.classList.add('clicked');
+          cell.innerHTML = near;
+          counter += 1;
+          youWin();
+          return;
+        }
+        checkCell(cell, targetId);
       }
-      checkCell(cell, targetId);
+      cell.classList.add('clicked');
+      counter += 1;
+      youWin();
     }
-    cell.classList.add('clicked');
-    counter += 1;
-    youWin();
   }
 
   function checkCell(cell, targetId) {
