@@ -55,9 +55,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 10;
   const bombs = 10;
 
+  let sec = 0;
+
   const cells = [];
   let gameOverCheck = false;
   let counter = 0;
+
+  function timer() {
+    if (!gameOverCheck) {
+      sec += 1;
+      console.log(`time elapsed: ${sec} seconds`);
+      setTimeout(timer, 1000);
+    }
+  }
 
   function click(cell) {
     const targetId = cell.id;
@@ -182,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         playSound('win.wav');
       }, 250);
       setTimeout(() => {
-        alert('Hooray! You found all mines!');
+        alert(`Hooray! You found all mines in ${sec} seconds!`);
       }, 350);
     }
   }
@@ -208,5 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
     audio.play();
   }
 
+  timer();
   populateBoard();
 });
