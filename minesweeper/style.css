@@ -89,4 +89,43 @@ body {
   border-radius: 15px;
   width: 120px;
   height: 40px;
+  background-color: #ffffff;
+}
+
+.settings {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  width: 450px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.settings div,
+.settingsBombs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ffffff;
+  font: bold 1.15rem Arial, sans-serif;
+  border: solid 0.25rem #444444;;
+  border-radius: 15px;
+  width: 140px;
+  height: 30px;
+}
+
+.settingsBombs {
+  margin: 0 auto;
+  height: 40px;
+  width: 200px;
+  margin-bottom: 1rem;
+  justify-content: space-evenly;
+  font-size: 1.25rem;
+}
+
+.settingsBombs input {
+  width: 45px;
+  border: solid 0.2rem #444444;
+  border-radius: 10px;
+  font: bold 1.25rem Arial, sans-serif;
 }

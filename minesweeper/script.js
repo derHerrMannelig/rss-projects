@@ -9,14 +9,63 @@ newGame.onclick = () => {
 header.className = 'header';
 header.textContent = 'Minesweeper';
 board.className = 'board';
+const settings = document.createElement('div');
+settings.className = 'settings';
+const buttonNovice = document.createElement('div');
+buttonNovice.innerHTML = 'Novice (10x10)';
+buttonNovice.onclick = () => {
+};
+const buttonAdept = document.createElement('div');
+buttonAdept.innerHTML = 'Adept (15x15)';
+buttonAdept.onclick = () => {
+};
+const buttonGodlike = document.createElement('div');
+buttonGodlike.innerHTML = 'Godlike (25x25)';
+buttonGodlike.onclick = () => {
+};
+
+const buttonBombs = document.createElement('div');
+buttonBombs.className = 'settingsBombs';
+const labelBombs = document.createElement('label');
+labelBombs.for = 'minesQuantity';
+labelBombs.innerHTML = 'Set mines:';
+const inputBombs = document.createElement('input');
+inputBombs.type = 'number';
+inputBombs.id = 'minesQuantity';
+inputBombs.name = 'minesQuantity';
+inputBombs.min = 10;
+inputBombs.max = 99;
+inputBombs.value = 10;
+buttonBombs.appendChild(labelBombs);
+buttonBombs.appendChild(inputBombs);
+
+settings.appendChild(buttonNovice);
+settings.appendChild(buttonAdept);
+settings.appendChild(buttonGodlike);
+
 document.body.appendChild(header);
+document.body.appendChild(settings);
+document.body.appendChild(buttonBombs);
 document.body.appendChild(newGame);
 document.body.appendChild(board);
 
 document.addEventListener('DOMContentLoaded', () => {
   const boardElement = document.querySelector('.board');
+
   const width = 10;
+
+  const a = 0;
+  const b = 9;
+  const c = 10;
+  const d = 11;
+
+  const z = 99;
+  const y = 90;
+  const x = 89;
+  const v = 88;
+
   const bombs = 10;
+
   const cells = [];
   let gameOverCheck = false;
   let counter = 0;
@@ -50,43 +99,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const rightEdge = (targetId % width === width - 1);
 
     setTimeout(() => {
-      if (targetId > 0 && !leftEdge) {
+      if (targetId > a && !leftEdge) {
         const newId = cells[parseInt(targetId, 10) - 1].id;
         const newCell = document.getElementById(newId);
         click(newCell);
       }
-      if (targetId > 9 && !rightEdge) {
+      if (targetId > b && !rightEdge) {
         const newId = cells[parseInt(targetId, 10) + 1 - width].id;
         const newCell = document.getElementById(newId);
         click(newCell);
       }
-      if (targetId > 10) {
+      if (targetId > c) {
         const newId = cells[parseInt(targetId, 10) - width].id;
         const newCell = document.getElementById(newId);
         click(newCell);
       }
-      if (targetId > 11 && !leftEdge) {
+      if (targetId > d && !leftEdge) {
         const newId = cells[parseInt(targetId, 10) - 1 - width].id;
         const newCell = document.getElementById(newId);
         click(newCell);
       }
-      if (targetId < 99 && !rightEdge) {
+
+      if (targetId < z && !rightEdge) {
         const newId = cells[parseInt(targetId, 10) + 1].id;
         const newCell = document.getElementById(newId);
         click(newCell);
       }
-      if (targetId < 90 && !leftEdge) {
+      if (targetId < y && !leftEdge) {
         const newId = cells[parseInt(targetId, 10) - 1 + width].id;
         const newCell = document.getElementById(newId);
         click(newCell);
       }
-      if (targetId < 88 && !rightEdge) {
-        const newId = cells[parseInt(targetId, 10) + 1 + width].id;
+      if (targetId < x) {
+        const newId = cells[parseInt(targetId, 10) + width].id;
         const newCell = document.getElementById(newId);
         click(newCell);
       }
-      if (targetId < 89) {
-        const newId = cells[parseInt(targetId, 10) + width].id;
+      if (targetId < v && !rightEdge) {
+        const newId = cells[parseInt(targetId, 10) + 1 + width].id;
         const newCell = document.getElementById(newId);
         click(newCell);
       }
@@ -121,15 +171,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const leftEdge = (i % width === 0);
       const rightEdge = (i % width === width - 1);
       if (cells[i].classList.contains('empty')) {
-        if (i > 0 && !leftEdge && cells[i - 1].classList.contains('bomb')) near += 1;
-        if (i > 9 && !rightEdge && cells[i + 1 - width].classList.contains('bomb')) near += 1;
-        if (i > 10 && cells[i - width].classList.contains('bomb')) near += 1;
-        if (i > 11 && !leftEdge && cells[i - 1 - width].classList.contains('bomb')) near += 1;
+        if (i > a && !leftEdge && cells[i - 1].classList.contains('bomb')) near += 1;
+        if (i > b && !rightEdge && cells[i + 1 - width].classList.contains('bomb')) near += 1;
+        if (i > c && cells[i - width].classList.contains('bomb')) near += 1;
+        if (i > d && !leftEdge && cells[i - 1 - width].classList.contains('bomb')) near += 1;
 
-        if (i < 99 && !rightEdge && cells[i + 1].classList.contains('bomb')) near += 1;
-        if (i < 90 && !leftEdge && cells[i - 1 + width].classList.contains('bomb')) near += 1;
-        if (i < 89 && cells[i + width].classList.contains('bomb')) near += 1;
-        if (i < 88 && !rightEdge && cells[i + 1 + width].classList.contains('bomb')) near += 1;
+        if (i < z && !rightEdge && cells[i + 1].classList.contains('bomb')) near += 1;
+        if (i < y && !leftEdge && cells[i - 1 + width].classList.contains('bomb')) near += 1;
+        if (i < x && cells[i + width].classList.contains('bomb')) near += 1;
+        if (i < v && !rightEdge && cells[i + 1 + width].classList.contains('bomb')) near += 1;
         cells[i].setAttribute('data', near);
       }
     }
