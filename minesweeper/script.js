@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const bombs = 10;
 
   let sec = 0;
+  let turn = 0;
 
   const cells = [];
   let gameOverCheck = false;
@@ -82,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cell.classList.add('clicked');
         cell.innerHTML = near;
         counter += 1;
-        console.log(counter);
         youWin();
         return;
       }
@@ -90,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     cell.classList.add('clicked');
     counter += 1;
-    console.log(counter);
     youWin();
   }
 
@@ -130,6 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
       cell.addEventListener('click', () => {
         if (!gameOverCheck) {
           playSound('click.wav');
+        }
+        if (!cell.classList.contains('clicked')) {
+          turn += 1;
+          console.log('Current turn: ', turn);
         }
         click(cell);
       });
@@ -192,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
         playSound('win.wav');
       }, 250);
       setTimeout(() => {
-        alert(`Hooray! You found all mines in ${sec} seconds!`);
+        alert(`Hooray! You found all mines in ${sec} seconds and ${turn} moves!`);
       }, 350);
     }
   }
