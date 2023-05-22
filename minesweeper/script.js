@@ -1,9 +1,16 @@
 const header = document.createElement('h1');
 const board = document.createElement('div');
+const newGame = document.createElement('button');
+newGame.className = 'newgame';
+newGame.innerHTML = 'Restart!';
+newGame.onclick = () => {
+  window.location.reload();
+};
 header.className = 'header';
 header.textContent = 'Minesweeper';
 board.className = 'board';
 document.body.appendChild(header);
+document.body.appendChild(newGame);
 document.body.appendChild(board);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -118,10 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (i > 9 && !rightEdge && cells[i + 1 - width].classList.contains('bomb')) near += 1;
         if (i > 10 && cells[i - width].classList.contains('bomb')) near += 1;
         if (i > 11 && !leftEdge && cells[i - 1 - width].classList.contains('bomb')) near += 1;
+
         if (i < 99 && !rightEdge && cells[i + 1].classList.contains('bomb')) near += 1;
         if (i < 90 && !leftEdge && cells[i - 1 + width].classList.contains('bomb')) near += 1;
-        if (i < 88 && !rightEdge && cells[i + 1 + width].classList.contains('bomb')) near += 1;
         if (i < 89 && cells[i + width].classList.contains('bomb')) near += 1;
+        if (i < 88 && !rightEdge && cells[i + 1 + width].classList.contains('bomb')) near += 1;
         cells[i].setAttribute('data', near);
       }
     }
@@ -143,6 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function youWin() {
     if (counter >= width * width - bombs) {
       gameOverCheck = true;
+      cells.forEach((cell) => {
+        if (cell.classList.contains('bomb')) {
+          cell.classList.add('defused');
+          cell.innerHTML = '&#128681';
+        }
+      });
       alert('Hooray! You found all mines!');
     }
   }
@@ -151,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gameOverCheck = true;
     cells.forEach((cell) => {
       if (cell.classList.contains('bomb')) {
+        cell.classList.add('exploded');
         cell.innerHTML = '&#128163';
       }
     });
