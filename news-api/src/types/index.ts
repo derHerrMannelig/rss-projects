@@ -61,10 +61,10 @@ export interface RequestParameters {
 
 export interface ResponseObject {
     status: string;
-    sources: Sources[];
+    sources: NewsSources[];
 }
 
-export interface Sources {
+export interface NewsSources {
     id: string;
     name: string;
     description: string;
