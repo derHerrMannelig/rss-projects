@@ -1,15 +1,3 @@
-export interface SourcesRequestParameters {
-    apiKey: string;
-    category?: string;
-    language?: string;
-    country?: string;
-}
-
-export interface SourcesResponseObject {
-    status: string;
-    sources: NewsSources[];
-}
-
 export interface NewsSources {
     id: string;
     name: string;
@@ -18,12 +6,6 @@ export interface NewsSources {
     category: string;
     language: string;
     country: string;
-}
-
-export interface NewsResponseObject {
-    status: string;
-    totalResults: number;
-    articles: NewsArticle[];
 }
 
 export interface NewsArticle {
