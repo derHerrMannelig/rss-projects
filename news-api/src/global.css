@@ -1,6 +1,6 @@
 body {
-    color: #fff;
-    background: #17181c;
+    color: #000;
+    background: #c8e8c8;
     font-family: sans-serif;
 }
 
@@ -11,25 +11,60 @@ header {
 header h1 {
     font-size: 40px;
     font-weight: 800;
+    width: 280px;
 }
 
 footer {
+    max-width: 1920px;
+    min-width: 300px;
+    margin: 0 auto;
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0 30px;
 }
-footer .copyright {
-    font-size: 14px;
+footer .copyright,
+footer .author {
+    font-size: 16px;
+    font-weight: bold;
     color: #333;
     text-align: center;
 }
-footer .copyright a {
+footer a {
     color: #444;
 }
-footer .copyright a:hover {
-    color: #555;
+footer a:hover {
+    color: orange;
 }
 footer .copyright:before {
     content: '©';
+}
+
+footer .rs-logo {
+    background-image: url(./svg/rs_school_js.svg);
+    display: inline-block;
+    height: 37px;
+    width: 100px;
+}
+
+@media (max-width: 720px) {
+    header {
+        padding: 0;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    header h1 {
+        text-align: center;
+        margin: 0 auto;
+    }
+    footer {
+        padding: 0
+    }
+}
+@media (max-width: 425px) {
+    footer .copyright,
+    footer .author {
+    width: 100px;
+    }
 }

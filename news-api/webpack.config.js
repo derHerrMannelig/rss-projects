@@ -11,6 +11,10 @@ const baseConfig = {
     module: {
         rules: [
             {
+                test: /\.svg/,
+                type: 'asset/resource',
+            },
+            {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
