@@ -12,9 +12,13 @@ class Sources {
                 if (!(sourceClone instanceof DocumentFragment)) {
                     throw new Error();
                 }
-                sourceClone.querySelector<HTMLElement>('.source__item-name')!.textContent = item.name;
-                sourceClone.querySelector<HTMLElement>('.source__item')!.setAttribute('data-source-id', item.id);
-                fragment.append(sourceClone);
+                const sourceNameElement = sourceClone.querySelector<HTMLElement>('.source__item-name');
+                const sourceItemElement = sourceClone.querySelector<HTMLElement>('.source__item');
+                if (sourceNameElement && sourceItemElement) {
+                    sourceNameElement.textContent = item.name;
+                    sourceItemElement.setAttribute('data-source-id', item.id);
+                    fragment.append(sourceClone);
+                }
             }
         });
 
